@@ -2,15 +2,47 @@
 <html>
 <head>
   <title>Flux Capacitor - Judgement Day</title>
+  
   <link rel="stylesheet" href="assets/css/flux-capacitor.css">
-  <script type="text/javascript" src="assets/js/jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="assets/js/TweenMax.min.js"></script>
-  <script type="text/javascript" src="assets/js/TimelineMax.min.js"></script>
+  
+  <script type="text/javascript" src="assets/lib/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="assets/lib/PxLoader.js"></script>
+  <script type="text/javascript" src="assets/lib/PxLoaderImage.js"></script>
+  <script type="text/javascript" src="assets/lib/PxLoaderSound.js"></script>
+  <script type="text/javascript" src="assets/lib/TweenMax.min.js"></script>
+  <script type="text/javascript" src="assets/lib/TimelineMax.min.js"></script>
   <script type="text/javascript" src="assets/js/app.js"></script>
+  
 </head>
 <body>
 
-<div class="grid animate animation-grid"></div>
+<div id="msg-1" class="message">
+  <span class="heading">2076</span>
+  <span>The bad parts of EcmaScript 8 became self-aware.</span>
+</div>
+
+<div id="msg-2" class="message">
+  <span>From the ashes of man, hope has risen.</span>
+</div>
+
+<div id="press-play">
+  Press <em>space</em> to play 
+</div>
+
+<div id="logo">
+  
+</div>
+
+<div id="grid" class="animation-grid"></div>
+
+<audio id="bgsound">
+  <source src="assets/audio/4198998659.mp3" type="audio/ogg">
+  Your browser does not support the fucking audio element.
+</audio>
+
+<span id="version">
+  v0.01-justgoandtakeadumplol
+</span>
 
 </body>
 </html>

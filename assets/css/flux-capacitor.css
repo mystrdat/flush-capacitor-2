@@ -12,17 +12,18 @@ body {
   background-color: #222;
 }
 
-.grid {
+#grid {
   position: absolute;
   left: 50%;
-  bottom: -100px;
+  bottom: 0;
   width: 200%;
   height: 100%;
   background: transparent url(../img/grid.png) repeat 0 0;
   transform: translateX(-50%);
+  z-index: 10;
 }
 
-.grid:before {
+#grid:before {
   content: '';
   display: block;
   height: 50%;
@@ -33,6 +34,82 @@ body {
   z-index: 1;
   background: linear-gradient(to bottom, #222 0%,rgba(0,2,34,0) 100%);
 }
+
+.message {
+  font-family: 'Agency FB';
+  font-size: 32px;
+  color: #fff;
+  text-shadow: 0 0 0.2em rgb(146, 85, 28), 0 0 0.7em #FF2222;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+  z-index: 11;
+  text-align: center;
+}
+
+.message .heading {
+  display: block;
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+#version {
+  font-size: 8px;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  font-family: 'Silkscreen';
+  opacity: 0.2;
+}
+
+.message {
+  font-family: 'Agency FB';
+  font-size: 32px;
+  color: #fff;
+  text-shadow: 0 0 0.2em rgb(146, 85, 28), 0 0 0.7em #FF2222;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+  z-index: 1;
+  text-align: center;
+}
+
+#logo {
+  z-index: 9;
+  background: transparent url(../img/logo.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  animation-name: bgZoom;
+  -webkit-animation-name: bgZoom;
+  animation-duration: 10s;
+  -webkit-animation-duration: 10s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  
+}
+
+/* Hider */
+.message,
+#grid,
+#press-play,
+#logo {
+  opacity: 0;
+}
+
 
 .animation-grid {
   animation-name: backgroundRepeat;
@@ -60,6 +137,37 @@ body {
 }
 
 @keyframes backgroundRepeat {
-  from {top: 0px;}
-  to {top: 200px;}
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 98%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@-webkit-keyframes bgZoom {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 90%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes bgZoom {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 98%;
+  }
+  100% {
+    background-size: 100%;
+  }
 }
