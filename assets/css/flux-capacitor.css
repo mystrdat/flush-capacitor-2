@@ -1,0 +1,65 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  perspective: 1000;
+  -webkit-perspective: 1000;
+  position: relative;
+  overflow: hidden;
+  background-color: #222;
+}
+
+.grid {
+  position: absolute;
+  left: 50%;
+  bottom: -100px;
+  width: 200%;
+  height: 100%;
+  background: transparent url(../img/grid.png) repeat 0 0;
+  transform: translateX(-50%);
+}
+
+.grid:before {
+  content: '';
+  display: block;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background: linear-gradient(to bottom, #222 0%,rgba(0,2,34,0) 100%);
+}
+
+.animation-grid {
+  animation-name: backgroundRepeat;
+  -webkit-animation-name: backgroundRepeat;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes backgroundRepeat {
+  0% {
+    background-position: 0 0;
+    //-webkit-filter: blur(0px);
+  }
+  50% {
+    //-webkit-filter: blur(6px);
+  }
+  100% {
+    background-position: 0 64px;
+    //-webkit-filter: blur(0px);
+  }
+}
+
+@keyframes backgroundRepeat {
+  from {top: 0px;}
+  to {top: 200px;}
+}
