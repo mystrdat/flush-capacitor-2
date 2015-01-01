@@ -2,24 +2,32 @@ $(function() {
 
   // Elements
   var bgSound = $('#bgsound');  
-  var elGrid = $('#grid');
-  var elMsg1 = $('#msg-1');
-  var elMsg2 = $('#msg-2');
-  var elLogo = $('#logo');
-  var elVideo = $('#lights');
+  var fakeMesh = $('#fake-mesh');
+  var badParts = $('#bad-parts');
+  var hopeHasRisen = $('#hope-has-risen');
+  var flushCapacitor = $('#flush-capacitor');
+  var lights = $('#lights');
+  var mute = $('#mute');
 
   // Main timeline script
   var flushCapacitorTimeline = new TimelineMax();  
   
   flushCapacitorTimeline
-      .set(elGrid, {opacity: 0.1})
-      .to(elMsg1, 0.5, {autoAlpha: 1, onComplete: bgSound.get(0).play()})
-      .to(elMsg1, 0.5, {autoAlpha: 0}, "+=5")
-      .to(elMsg2, 0.5, {autoAlpha: 1}, "+=1")
-      .to(elMsg2, 0.5, {autoAlpha: 0}, "+=5")
-      .to(elGrid, 3, {rotationX:"75deg", height: "60%", bottom: "-100px", scale: 1,  opacity: 1, ease:Back.easeInOut})
-      .to(elVideo, 0.5, {autoAlpha: 0.6}, "-=.8")
-      .to(elLogo, 0.5, {autoAlpha: 1, y: "-=100px", scale: 1.1}, "-=.8");
-  
+      .to(mute, 2, {scale: 0.5, right: "60px", top: "-10px", opacity: 0.15, delay: 2}, "start")
+      .set(fakeMesh, {opacity: 0.1}, "start")
+      .to(badParts, 0.5, {autoAlpha: 1, onComplete: bgSound.get(0).play()}, "start")
+      .to(badParts, 0.5, {autoAlpha: 0}, "+=2")
+      .to(hopeHasRisen, 0.5, {autoAlpha: 1}, "+=1")
+      .to(hopeHasRisen.find('disappear-early'), 0.5, {autoAlpha: 0}, "+=4")
+      .to(hopeHasRisen, 0.5, {autoAlpha: 0}, "+=1")
+      .to(fakeMesh, 3, {rotationX: "75deg", height: "60%", bottom: "-100px", scale: 1,  opacity: 1, ease:Back.easeInOut}, "-=.5")
+      .to(lights, 0.5, {autoAlpha: 0.8, scale: 6}, "-=.8")
+      .to(flushCapacitor, 0.5, {autoAlpha: 1, 'margin-top': "-=100px", scale: 1.3}, "-=.8");
     
+  // Mute toggle
+  
+  mute.on('click', function(){
+      bgSound.get(0).muted = !bgSound.get(0).muted;
+  })
+  
 });
